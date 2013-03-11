@@ -1,0 +1,80 @@
+2013/03/10 15:26:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin".' in D:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin')
+#1 D:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\honest\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/honest/index.php/admin/
+---
+2013/03/10 15:26:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin".' in D:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin')
+#1 D:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\honest\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/honest/index.php/admin
+---
+2013/03/10 15:27:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin".' in D:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin')
+#1 D:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\honest\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/honest/index.php/admin
+---
+2013/03/10 15:28:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/default".' in D:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/default')
+#1 D:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\honest\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/honest/index.php/admin/default
+---
+2013/03/10 15:29:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin".' in D:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin')
+#1 D:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\honest\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/honest/index.php/admin
+---
+2013/03/10 15:29:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin".' in D:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin')
+#1 D:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\honest\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/honest/index.php/admin
+---
+2013/03/10 15:29:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin".' in D:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin')
+#1 D:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\honest\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/honest/index.php/admin
+---
+2013/03/10 15:30:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin".' in D:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin')
+#1 D:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\honest\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/honest/index.php/admin
+---
+2013/03/10 15:30:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin".' in D:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin')
+#1 D:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\honest\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/honest/index.php/admin/
+---
+2013/03/11 13:40:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "use".' in D:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('use')
+#1 D:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\honest\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/honest/index.php/use/
+---
