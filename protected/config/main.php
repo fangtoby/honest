@@ -12,6 +12,7 @@ return array(
 	'timeZone'=> 'Asia/Shanghai',
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Honest Lies',
+	'language'=>'zh_CN',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -32,14 +33,16 @@ return array(
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
-		'Admin',
+		'admin'=>array(
+			 'class'=>'application.modules.admin.AdminModule',
+		)
 	),
 
 	// application components
 	'components'=>array(
 		'user'=>array(
 			// enable cookie-based authentication
-			'allowAutoLogin'=>true,
+			'allowAutoLogin'=>false,
 		),
 		// uncomment the following to enable URLs in path-format
 		//
@@ -52,6 +55,15 @@ return array(
 		),
 		//
 		'urlManager'=>array(
+            'urlFormat'=>'path',
+            'appendParams'=>false,
+            'showScriptName' => false,
+            'rules' => array(
+                'site_<view:\w+>'  => array('site/pages','urlSuffix'=>'.html', 'caseSensitive'=>false),
+            ),
+        ),
+		/*
+		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
@@ -60,7 +72,6 @@ return array(
 			),
 		),
 		
-		/*
 		'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),
@@ -84,6 +95,7 @@ return array(
 				array(
                     'class'=>'CFileLogRoute',
                     'categories'=>'system.db.*',
+					'levels'=>'info,error, warning',  
                     'logPath'=>dirname(__FILE__).DIRECTORY_SEPARATOR."../runtime",
                     'logFile'=>'db.log',
                     'maxFileSize'=>10240,       #unit:KB

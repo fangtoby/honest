@@ -9,15 +9,18 @@ class AdminModule extends CWebModule
 
 		// import the module-level models and components
 		$this->setImport(array(
-			'Admin.models.*',
-			'Admin.components.*',
+			$this->getId().'.models.*',
+			$this->getId().'.components.*',
 		));
+		$this->layout = 'main';
+		
 	}
 
 	public function beforeControllerAction($controller, $action)
 	{
 		if(parent::beforeControllerAction($controller, $action))
 		{
+			Yii::app()->homeUrl = array('/admin/default');
 			// this method is called before any module controller action is performed
 			// you may place customized code here
 			return true;

@@ -4,6 +4,11 @@
 $this->breadcrumbs=array(
 	$this->module->id,
 );
+//Yii::app()->adminuser->loginRequired();
+//echo Yii::app()->request->isAjaxRequest == true ? "Is Ajax Request":"It normal Request";
+
+if(Yii::app()->adminuser->isGuest)
+	echo "User Is Guest!";
 ?>
 <h1><?php echo $this->uniqueId . '/' . $this->action->id; ?></h1>
 

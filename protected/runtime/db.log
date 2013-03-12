@@ -1,0 +1,144 @@
+2013/03/12 20:06:20 [trace] [system.db.CDbConnection] Opening DB connection
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (136)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:06:21 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (136)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:06:21 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (136)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:06:21 [trace] [system.db.ar.CActiveRecord] Users.count()
+in D:\xampp\htdocs\honest\protected\views\users\admin.php (63)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (143)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:06:21 [trace] [system.db.CDbCommand] Querying SQL: SELECT COUNT(*) FROM `users` `t`
+in D:\xampp\htdocs\honest\protected\views\users\admin.php (63)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (143)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:06:21 [trace] [system.db.ar.CActiveRecord] Users.findAll()
+in D:\xampp\htdocs\honest\protected\views\users\admin.php (63)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (143)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:06:21 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` LIMIT 10
+in D:\xampp\htdocs\honest\protected\views\users\admin.php (63)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (143)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:08:03 [trace] [system.db.CDbConnection] Opening DB connection
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (125)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:08:03 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (125)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:08:03 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (125)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:08:03 [trace] [system.db.ar.CActiveRecord] Users.count()
+in D:\xampp\htdocs\honest\protected\views\users\index.php (20)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (128)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:08:03 [trace] [system.db.CDbCommand] Querying SQL: SELECT COUNT(*) FROM `users` `t`
+in D:\xampp\htdocs\honest\protected\views\users\index.php (20)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (128)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:08:03 [trace] [system.db.ar.CActiveRecord] Users.findAll()
+in D:\xampp\htdocs\honest\protected\views\users\index.php (20)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (128)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:08:03 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` LIMIT 10
+in D:\xampp\htdocs\honest\protected\views\users\index.php (20)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (128)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:08:09 [trace] [system.db.CDbConnection] Opening DB connection
+in D:\xampp\htdocs\honest\protected\models\Users.php (26)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (155)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (55)
+2013/03/12 20:08:09 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in D:\xampp\htdocs\honest\protected\models\Users.php (26)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (155)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (55)
+2013/03/12 20:08:09 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in D:\xampp\htdocs\honest\protected\models\Users.php (26)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (155)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (55)
+2013/03/12 20:08:09 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (155)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (55)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:08:09 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`uid`=1 LIMIT 1
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (155)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (55)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:13:25 [trace] [system.db.CDbConnection] Opening DB connection
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (65)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:13:25 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (65)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:13:26 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (65)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:13:51 [trace] [system.db.CDbConnection] Opening DB connection
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (125)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:13:51 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (125)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:13:51 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (125)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:13:51 [trace] [system.db.ar.CActiveRecord] Users.count()
+in D:\xampp\htdocs\honest\protected\views\users\index.php (20)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (128)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:13:51 [trace] [system.db.CDbCommand] Querying SQL: SELECT COUNT(*) FROM `users` `t`
+in D:\xampp\htdocs\honest\protected\views\users\index.php (20)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (128)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:13:51 [trace] [system.db.ar.CActiveRecord] Users.findAll()
+in D:\xampp\htdocs\honest\protected\views\users\index.php (20)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (128)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:13:51 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` LIMIT 10
+in D:\xampp\htdocs\honest\protected\views\users\index.php (20)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (128)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:13:56 [trace] [system.db.CDbConnection] Opening DB connection
+in D:\xampp\htdocs\honest\protected\models\Users.php (26)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (155)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (55)
+2013/03/12 20:13:56 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in D:\xampp\htdocs\honest\protected\models\Users.php (26)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (155)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (55)
+2013/03/12 20:13:56 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in D:\xampp\htdocs\honest\protected\models\Users.php (26)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (155)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (55)
+2013/03/12 20:13:56 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (155)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (55)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:13:56 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`uid`=1 LIMIT 1
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (155)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (55)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:14:00 [trace] [system.db.CDbConnection] Opening DB connection
+in D:\xampp\htdocs\honest\protected\models\Users.php (26)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (155)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (89)
+2013/03/12 20:14:00 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in D:\xampp\htdocs\honest\protected\models\Users.php (26)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (155)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (89)
+2013/03/12 20:14:01 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in D:\xampp\htdocs\honest\protected\models\Users.php (26)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (155)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (89)
+2013/03/12 20:14:01 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (155)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (89)
+in D:\xampp\htdocs\honest\index.php (13)
+2013/03/12 20:14:01 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`uid`=1 LIMIT 1
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (155)
+in D:\xampp\htdocs\honest\protected\controllers\UsersController.php (89)
+in D:\xampp\htdocs\honest\index.php (13)
