@@ -5,10 +5,13 @@
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
-include("init/param.php");
+
+require_once(dirname(__FILE__)."/init/param.php");
+
 return array(
+	'timeZone'=> 'Asia/Shanghai',
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'Honest Lies',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -17,6 +20,7 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'application.extensions.*',
 	),
 
 	'modules'=>array(
@@ -70,15 +74,19 @@ return array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
 				array(
-					'class'=>'CFileLogRoute',
-					'levels'=>'error, warning',
-				),
-				// uncomment the following to show log messages on web pages
-				/*
+                    'class'=>'CFileLogRoute',
+                    'categories'=>'system.db.*',
+                    'logPath'=>dirname(__FILE__).DIRECTORY_SEPARATOR."../runtime",
+                    'logFile'=>'db.log',
+                    'maxFileSize'=>10240,       #unit:KB
+                    'maxLogFiles'=>5,           #logrotate , keep latest 5 log-files
+                ),
 				array(
-					'class'=>'CWebLogRoute',
-				),
-				*/
+                    'class' => 'CWebLogRoute',
+                    'categories'=>'system.db.*',
+                    'showInFireBug' => false,
+                    'ignoreAjaxInFireBug' => false
+                ),
 			),
 		),
 	),
