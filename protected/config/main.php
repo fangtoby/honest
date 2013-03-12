@@ -42,7 +42,15 @@ return array(
 			'allowAutoLogin'=>true,
 		),
 		// uncomment the following to enable URLs in path-format
-		
+		//
+		'adminuser'=>array(
+				'class' => 'CWebUser',
+				'stateKeyPrefix'=>'admin',
+				'allowAutoLogin'=>false,
+				'loginUrl'=> array('admin/default/login'),
+                'returnUrl'=>array('/admin'),
+		),
+		//
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'rules'=>array(
