@@ -12,6 +12,7 @@ class AdminModule extends CWebModule
 			$this->getId().'.models.*',
 			$this->getId().'.components.*',
 		));
+		
 		$this->layout = 'main';
 		
 	}

@@ -9,6 +9,9 @@ $this->breadcrumbs=array(
 
 if(Yii::app()->adminuser->isGuest)
 	echo "User Is Guest!";
+	
+var_dump(Yii::app()->homeUrl);
+
 ?>
 <h1><?php echo $this->uniqueId . '/' . $this->action->id; ?></h1>
 
