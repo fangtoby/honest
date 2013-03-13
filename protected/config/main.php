@@ -10,9 +10,45 @@ require_once(dirname(__FILE__)."/init/param.php");
 
 return array(
 	'timeZone'=> 'Asia/Shanghai',
+	/*
+	*@Note
+	*
+	*DIRECTORY_SEPARATOR
+	*Resolve the compatibility of the different operating platform
+	*
+	*/
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Honest Lies',
 	'language'=>'zh_CN',
+	/*
+	*
+	*'language'=>'zh_CN', is frist
+	*
+	*@Note How to use multi-language settings
+	*
+	*Normal
+	*
+	*Yii::t("{Contoller Name}.{Array Key}")
+	*
+	*Yii::t("campaign",'Year')
+	*
+	*(application.messages.{Which Language<temple>zh_TW</temple>}.{Which Controller})
+	*
+	*In Module
+	*
+	*Yii::t("{Modules Name}+{Module}.{Module Controller Name || File Name}")
+	*
+	*Yii::t("AdminModule.amazonCode",'Upload CSV File')
+	*
+	*(application.{Moduls Name}.messages.{Which Language<temple>zh_TW</temple>}.{Which Controller})
+	*
+	*
+	*@Example
+	*return array(
+	*	'Key'=>'Values'
+	*)
+	*
+	*/
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -89,6 +125,9 @@ return array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
 		),
+		/*
+		*Open Log 
+		*/
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
@@ -115,6 +154,6 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'webmaster@example.com',
+		'adminEmail'=>'fangtoby6@gmail.com',
 	),
 );
