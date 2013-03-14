@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 
 class Util {
     static function postRequest($url,$data){
@@ -30,7 +30,7 @@ class Util {
 		return $result;
     }    
 
-    //»ñÈ¡¿Í»§¶ËµÄÕæÊµIP
+    //è·å–å®¢æˆ·ç«¯çš„çœŸå®IP
     static function getRealIp(){
         if(getenv('HTTP_X_REAL_IP')) {
             $ip = getenv('HTTP_X_REAL_IP');
@@ -51,7 +51,7 @@ class Util {
         return $ip;
     } 
     
-    //ÔÊĞíµÄip·µ»ØÎªtrue£¬²»ÔÊĞíµÄip·µ»ØÎªfalse
+    //å…è®¸çš„ipè¿”å›ä¸ºtrueï¼Œä¸å…è®¸çš„ipè¿”å›ä¸ºfalse
     public static function checkIp(){
         $list = Util::loadconfig('ipCheckList');
         $realIp = Util::getRealIp();
@@ -173,12 +173,12 @@ class Util {
 	}
 	public static function array_unique_fb($array2D){
 		 foreach ($array2D as $v){
-			 $v = join(",",$v);  //½µÎ¬,Ò²¿ÉÒÔÓÃimplode,½«Ò»Î¬Êı×é×ª»»ÎªÓÃ¶ººÅÁ¬½ÓµÄ×Ö·û´®
+			 $v = join(",",$v);  //é™ç»´,ä¹Ÿå¯ä»¥ç”¨implode,å°†ä¸€ç»´æ•°ç»„è½¬æ¢ä¸ºç”¨é€—å·è¿æ¥çš„å­—ç¬¦ä¸²
 			 $temp[] = $v;
 		 }
-		 $temp = array_unique($temp);    //È¥µôÖØ¸´µÄ×Ö·û´®,Ò²¾ÍÊÇÖØ¸´µÄÒ»Î¬Êı×é
+		 $temp = array_unique($temp);    //å»æ‰é‡å¤çš„å­—ç¬¦ä¸²,ä¹Ÿå°±æ˜¯é‡å¤çš„ä¸€ç»´æ•°ç»„
 		foreach ($temp as $k => $v){
-			$temp[$k] = explode(",",$v);   //ÔÙ½«²ğ¿ªµÄÊı×éÖØĞÂ×é×°
+			$temp[$k] = explode(",",$v);   //å†å°†æ‹†å¼€çš„æ•°ç»„é‡æ–°ç»„è£…
 		}
 		return $temp;
 	}
