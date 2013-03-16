@@ -15,6 +15,16 @@ class UserIdentity extends CUserIdentity
 	 * against some persistent user identity storage (e.g. database).
 	 * @return boolean whether authentication succeeds.
 	 */
+	 private $_id;
+	 
+	 public static function createAuthenticatedIdentity($user) {
+		$identity=new self($user['id'],$user['name']);
+		$identity->_id = $user['id'];
+		$identity->setState('userInfo', $user);
+		$identity->errorCode=self::ERROR_NONE;
+		$identity->setState('time', time());
+		return $identity;
+	}
 	public function authenticate()
 	{
 		$users=array(

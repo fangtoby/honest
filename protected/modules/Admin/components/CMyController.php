@@ -42,6 +42,7 @@ class CMyController extends CController
 		return true;
 	}
 	
+	/*
 	public function filters(){
 		return array('checkUser');
 	}
@@ -87,7 +88,6 @@ class CMyController extends CController
 		}
 		return true;
 	}
-	/*
 	public function beforeAction($action) 
     {
 		if(isset(Yii::app()->user->logoutRequired) && Yii::app()->user->logoutRequired){

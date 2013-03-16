@@ -160,13 +160,13 @@ class Ecore
       // define js filename
       //$ctrlJs = $this->controllerId . DS . $this->controllerId . JS;
 	  $modJs  = isset($this->moduleId) ? 'modules'.DS.$this->moduleId . DS . $this->moduleId . JS : null;
-	  $ctrlJs = isset($this->moduleId) ? 'modules'.DS.$this->moduleId . DS . $this->controllerId . JS : $this->controllerId . DS . $this->controllerId . JS;
-      $actJs  = isset($this->moduleId) ? 'modules'.DS.$this->moduleId . DS . "{$this->controllerId}-{$this->actionId}" . JS : $this->controllerId . DS . "{$this->controllerId}-{$this->actionId}" . JS;
+	  $ctrlJs = isset($this->moduleId) ? 'modules'.DS.$this->moduleId . DS . $this->controllerId . DS . $this->controllerId . JS : $this->controllerId . DS . $this->controllerId . JS;
+      $actJs  = isset($this->moduleId) ? 'modules'.DS.$this->moduleId . DS . $this->controllerId . DS . "{$this->controllerId}-{$this->actionId}" . JS : $this->controllerId . DS . "{$this->controllerId}-{$this->actionId}" . JS;
       $getJs  = isset($this->getId) ? "{$this->controllerId}-{$this->actionId}_{$this->getId}" . JS : null;
       if ($dev) {
         // define css filename
         $mainCss   = array();
-		$modCss   = $this->moduleId . CSS;
+		$modCss    = $this->moduleId . CSS;
         $ctrlCss   = $this->controllerId . CSS;
         $actCss    = "{$this->controllerId}-{$this->actionId}" . CSS;
         $getCss    = isset($this->getId) ? "{$this->controllerId}-{$this->actionId}_{$this->getId}" . CSS : null;

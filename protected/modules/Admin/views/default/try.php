@@ -5,15 +5,14 @@ $this->breadcrumbs=array(
 	$this->module->id,
 );
 
-if(isset(Yii::app()->session['userID'])){
-	echo "Hello :".Yii::app()->session['userID']."<br />";
+if(isset(Yii::app()->adminuser->id)){
+	echo "Hello :".Yii::app()->adminuser->id."<br />";
 }
 //Yii::app()->adminuser->loginRequired();
 //echo Yii::app()->request->isAjaxRequest == true ? "Is Ajax Request":"It normal Request";
 
-if(Yii::app()->adminuser->isGuest)
-	echo "User Is Guest!"."<br />";
-	
+
+
 var_dump(Yii::app()->homeUrl)."<br />";
 
 ?>

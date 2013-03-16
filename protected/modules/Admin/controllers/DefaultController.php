@@ -8,7 +8,10 @@ class DefaultController extends CMyController
 	}
 	public function actionLogin()
 	{
-		
+		$userArray = array('id'=>'930973365','name'=>'Honest_lies');
+		$userIdentity = UserIdentity::createAuthenticatedIdentity($userArray);
+		Yii::app()->adminuser->login($userIdentity,60*20);
+		$this->render('login');
 	}
 	public function actionTry()
 	{

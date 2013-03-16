@@ -85,7 +85,7 @@ return array(
 		'adminuser'=>array(
 				'class' => 'CWebUser',
 				'stateKeyPrefix'=>'admin',
-				'allowAutoLogin'=>false,
+				'allowAutoLogin'=>true,
 				'loginUrl'=> array('admin/default/index'),
                 'returnUrl'=>array('/admin'),
 		),
