@@ -13,7 +13,7 @@ class CMyController extends CController
 	 */
 	public $breadcrumbs=array();
 	
-	/*
+	
 	
 	public $_ecore;
 	
@@ -28,10 +28,10 @@ class CMyController extends CController
 					$cs->coreScriptPosition = CClientScript::POS_HEAD;
 					$clientScripts = array(
 						'js'=>array(
-							array('module-data', 'module-lottery')
+							array('', '')
 						)
 					);
-					$this->_ehtml = $this->_ecore->initClientScript(YII_TEST, $clientScripts, true);
+					$this->_ehtml = $this->_ecore->initClientScript(YII_DEBUG, $clientScripts, true);
 				break;	
 				default:
 				    $cs->registerCoreScript('jquery');
@@ -42,7 +42,52 @@ class CMyController extends CController
 		return true;
 	}
 	
+	public function filters(){
+		return array('checkUser');
+	}
 	
+  	public function filterCheckUser($filterChain) {
+		$session = Yii::app()->session;
+        $session->open();
+		$controller = $this->id;
+        $action = $this->action->id;
+		
+		if(isset($_GET['userID']) && $_GET['userID'] == 123){
+			$session['userID'] = $_GET['userID'];
+		}else{
+			if(isset($session['userID']) && $session['userID'] == 123){
+			}else{
+				if(in_array($controller,array('default','try')) && in_array($action,array('index','try'))){
+				}else{
+					Yii::app()->adminuser->loginRequired();
+				}
+				 
+			}
+		}
+		$filterChain->run();
+	}
+	public function beforeAction($action)
+	{
+		$session = Yii::app()->session;
+        $session->open();
+		$controller = $this->id;
+        $action = $this->action->id;
+		
+		if(isset($_GET['userID']) && $_GET['userID'] == 123){
+			$session['userID'] = $_GET['userID'];
+		}else{
+			if(isset($session['userID']) && $session['userID'] == 123){
+			}else{
+				if(in_array($controller,array('default')) && in_array($action,array('index','try'))){
+				}else{
+					echo CJSON::encode(array('loginStatus'=>'false'));
+				}
+				 
+			}
+		}
+		return true;
+	}
+	/*
 	public function beforeAction($action) 
     {
 		if(isset(Yii::app()->user->logoutRequired) && Yii::app()->user->logoutRequired){

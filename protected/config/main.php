@@ -86,10 +86,12 @@ return array(
 				'class' => 'CWebUser',
 				'stateKeyPrefix'=>'admin',
 				'allowAutoLogin'=>false,
-				'loginUrl'=> array('admin/default/login'),
+				'loginUrl'=> array('admin/default/index'),
                 'returnUrl'=>array('/admin'),
 		),
 		//
+		
+		/*
 		'urlManager'=>array(
             'urlFormat'=>'path',
             'appendParams'=>false,
@@ -98,7 +100,11 @@ return array(
                 'site_<view:\w+>'  => array('site/pages','urlSuffix'=>'.html', 'caseSensitive'=>false),
             ),
         ),
-		/*
+		
+		'db'=>array(
+			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
+		),
+		*/
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'rules'=>array(
@@ -108,10 +114,6 @@ return array(
 			),
 		),
 		
-		'db'=>array(
-			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
-		),
-		*/
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
