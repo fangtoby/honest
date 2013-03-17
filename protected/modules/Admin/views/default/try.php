@@ -4,7 +4,12 @@
 $this->breadcrumbs=array(
 	$this->module->id,
 );
-
+if(IS_AJAX) {
+			echo "it is an AJAX Call"."<br />";
+		}
+		else {
+			echo "it is not an AJAX Call"."<br />";
+		}
 if(isset(Yii::app()->adminuser->id)){
 	echo "Hello :".Yii::app()->adminuser->id."<br />";
 }

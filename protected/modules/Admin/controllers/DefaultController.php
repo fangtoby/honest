@@ -1,5 +1,5 @@
 <?php
-
+define('IS_AJAX', isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest');
 class DefaultController extends CMyController
 {
 	public function actionIndex()
@@ -21,8 +21,16 @@ class DefaultController extends CMyController
 	
 	public function actionTry()
 	{
+		
+		
 		$this->render('try');
 	}
+	
+	public function actionDbinfo()
+	{
+		$this->render('dbinfo');	
+	}
+	
 	public function actionForajax()
 	{
 		if(Yii::app()->request->isAjaxRequest && isset($_GET['json'])){
@@ -33,6 +41,9 @@ class DefaultController extends CMyController
 				$param['times']= $param['times']+1;
 			}else{
 				$param['times'] = 1;
+			}
+			if(IS_AJAX){
+				$param['requestWays']= 'It Ajax!';
 			}
 			if(is_object($param)){
 				echo CJSON::encode(array('note'=>'is object in php!'));

@@ -19,6 +19,8 @@ class CMyController extends CController
 	
 	public $_ehtml;
 	
+	public $userID;
+	
 	protected function beforeRender($view){
 		$cs = Yii::app()->clientScript;
 		if(Yii::app()->controller->module->id){
@@ -75,6 +77,8 @@ class CMyController extends CController
 		
 		
 		if(!Yii::app()->adminuser->isGuest){
+			$userInfo = Yii::app()->adminuser->userInfo;
+			$this->userID = $userInfo['id'];
 		}else{
 			  if(in_array($controller,array('default')) && in_array($action,array('index','login','try'))){
 			  }else{
