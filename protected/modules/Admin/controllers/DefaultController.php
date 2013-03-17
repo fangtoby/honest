@@ -13,6 +13,12 @@ class DefaultController extends CMyController
 		Yii::app()->adminuser->login($userIdentity,60*20);
 		$this->render('login');
 	}
+	public function actionLogout()
+	{
+		Yii::app()->adminuser->logout();
+		Yii::app()->adminuser->loginRequired();
+	}
+	
 	public function actionTry()
 	{
 		$this->render('try');

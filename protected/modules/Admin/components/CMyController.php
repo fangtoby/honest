@@ -67,27 +67,24 @@ class CMyController extends CController
 		}
 		$filterChain->run();
 	}
+	*/
 	public function beforeAction($action)
 	{
-		$session = Yii::app()->session;
-        $session->open();
 		$controller = $this->id;
         $action = $this->action->id;
 		
-		if(isset($_GET['userID']) && $_GET['userID'] == 123){
-			$session['userID'] = $_GET['userID'];
+		
+		if(!Yii::app()->adminuser->isGuest){
 		}else{
-			if(isset($session['userID']) && $session['userID'] == 123){
-			}else{
-				if(in_array($controller,array('default')) && in_array($action,array('index','try'))){
-				}else{
-					echo CJSON::encode(array('loginStatus'=>'false'));
-				}
-				 
-			}
+			  if(in_array($controller,array('default')) && in_array($action,array('index','login','try'))){
+			  }else{
+				  echo CJSON::encode(array('loginStatus'=>'false'));
+				  Yii::app()->end();
+			  }
 		}
 		return true;
 	}
+	/*
 	public function beforeAction($action) 
     {
 		if(isset(Yii::app()->user->logoutRequired) && Yii::app()->user->logoutRequired){
