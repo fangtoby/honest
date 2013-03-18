@@ -4,7 +4,7 @@
 $this->breadcrumbs=array(
 	$this->module->id,
 );
-if(IS_AJAX) {
+if(Yii::app()->request->isAjaxRequest) {
 			echo "it is an AJAX Call"."<br />";
 		}
 		else {

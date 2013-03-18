@@ -1,0 +1,145 @@
+<?php
+	
+	$loadScript = array(
+		array('loadScript','hello'),
+		array('loadScript','world'),
+		array('loadScript','sorry'),
+		array('loadScript','welcome'),
+		array('loadScript','wemen'),
+		array('loadScript','men'),
+		array('loadScript','girl'),
+		array('honestlies','welcome'),
+		array('honestlies','wemen'),
+		array('honestlies','men'),
+		array('honestlies','girl'),
+		array('company','welcome'),
+		array('company','wemen'),
+		array('company','men'),
+		array('company','girl'),
+		array('campaign','welcome'),
+		array('campaign','wemen'),
+		array('campaign','men'),
+		array('campaign','girl'),
+	);
+	
+	$jsReservedWords = array(
+		"break",
+		"delete",
+		"function",
+		"return",
+		"typeof",
+		"case",
+		"do",
+		"if",
+		"switch",
+		"var",
+		"catch",
+		"else",
+		"in",
+		"this",
+		"void",
+		"continue",
+		"false",
+		"instanceof",
+		"throw",
+		"while",
+		"debugger",
+		"finally",
+		"new",
+		"true",
+		"with",
+		"default",
+		"for",
+		"null",
+		"prototype",
+		"window",
+		"try",
+		"+",
+		"=",
+		"-",
+	);
+	
+	$suffix = '.js';
+	$defaultModule = "default";
+	$rootPath = Yii::getPathOfAlias('webroot').'/javascript/example/';
+	
+	if(file_exists($rootPath) && is_dir($rootPath)){
+	}else{
+		mkdir($rootPath,0777);	
+	}
+	
+	foreach($loadScript as $k=>$v ){
+		
+		echo $rootPath.$v[0].'/'.$v[0].'-'.$v[1].$suffix."<br />";	
+		
+			$funcName = strtolower($v[0]).ucfirst($v[1]);
+			$fileName = strtolower($v[0])."-".strtolower($v[1]);
+			if(file_exists($rootPath.$v[0].'/') && is_dir($rootPath.$v[0].'/')){
+			}else{
+				mkdir($rootPath.strtolower($v[0]).'/',0777);	
+			}
+			if(!file_exists($rootPath.$v[0].'/'.$fileName.$suffix)){
+				
+				$content = "";
+				$content .= "/*\n";
+				$content .= "* Script Create By Class RelationScript\n";
+				$content .= "* Class File Name relationScript.php\n";
+				$content .= "* Data:".date("Y/m/d H:i:s")."\n";
+				$content .= "* Relation Modules [".$defaultModule."]\n";
+				$content .= "* Relation Controller [".$v[0]."]\n";
+				$content .= "* Relation Action [".$v[1]."]\n";
+				$content .= "*/\n";
+				$content .= "function ".$funcName."Action(){\n";
+				$content .= "}\n";
+				$content .= $funcName."Action.prototype = {\n";
+				$content .= "\t"."delayed : false,//false/true\n";
+				$content .= "\t"."init:function(){\n";
+				$content .= "\t"."\t"."var _self = this;\n";
+				$content .= "\t"."}\n";
+				$content .= "}\n";
+				
+				echo "Script ".$fileName.$v[0].'/'.$suffix.'Not  Exist!'."<br />";	
+				$fp = fopen($rootPath.$v[0].'/'.$fileName.$suffix,'w+');
+				
+				if($fp){
+					echo "Script ".$fileName.$v[0].'/'.$suffix.' Create Success!'."<br />";
+					fwrite($fp,$content,strlen($content));	
+					echo "Script ".$fileName.$v[0].'/'.$suffix.' Write in Success!'."<br />";
+				}
+				
+				fclose($fp);
+				
+			}else{
+				$fp = fopen($rootPath.$v[0].'/'.$fileName.$suffix,'r');
+				
+				if($fp){
+					echo "Script ".$v[0].'/'.$fileName.$suffix.' Open Success!'."<br />";
+					
+					while(! feof($fp)){
+						$content = fgets($fp);
+						$content = str_replace("/*","<span style='color:#aaa; font-weight:normal;'>/*",$content);
+						$content = str_replace("*/","*/</span>",$content);
+						foreach($jsReservedWords as $key=>$value){
+							$content = str_replace(" ".$value."","<b class='add-font-color-a'>"." ".$value."</b>",$content);
+							$content = str_replace("".$value." ","<b class='add-font-color-a'>".$value." "."</b>",$content);
+							$content = str_replace(":".$value,"<b class='add-font-color-a'>:".$value." "."</b>",$content);
+						}
+						$content = str_replace("{","<b style='color:blue;'>{</b>",$content);
+						$content = str_replace("}","<b style='color:blue;'>}</b>",$content);
+						$content = str_replace("()","<b style='color:blue;'>(&nbsp;)</b>",$content);
+						$content = str_replace("\t","&nbsp;&nbsp;&nbsp;",$content);
+						$content = str_replace("\t","&nbsp;&nbsp;&nbsp;",$content);
+						$content = str_replace("\n","<br />",$content);
+						echo $content;	
+					}
+					
+					echo "Script ".$v[0].'/'.$fileName.$suffix.' Read Success!'."<br />";
+				}
+				
+				fclose($fp);
+				echo "Script ".$v[0].'/'.$fileName.$suffix.' Exist!'."<br /><br /><br />";	
+				
+			}
+	}
+	
+?>

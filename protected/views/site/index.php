@@ -3,6 +3,11 @@
 
 $this->pageTitle=Yii::app()->name;
 ?>
+<?php
+	//$autoCScript = new AutoCScript();
+	$autoCScript = AutoCScript::getInstance();
+	$autoCScript->test();
+?>
 
 <h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
 
