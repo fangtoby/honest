@@ -5,8 +5,8 @@ class DBUtil{
 		if($db === null)
 			$db = Yii::app()->db;
 		$cmd = $db->createCommand("SHOW TABLES LIKE '$tableName'");
-        $is_exists = $cmd->query();
-        if( $is_exists->getRowCount() ){
+        $is_exists = $cmd->queryAll();
+        if(count($is_exists)){
         	return true;
         }
         return false;
@@ -21,11 +21,11 @@ class DBUtil{
 		try{
 			$db = Yii::app()->db;
 			$cmd = $db->createCommand("CREATE TABLE IF NOT EXISTS `$tableName` like `$likeTableName`");
-	        $cmd->query();
+	        $cmd->execute();
         }catch (Exception $e) {
         	return false;
         }
-        return false;
+        return true;
 	}
 }
 ?>
