@@ -75,7 +75,9 @@ class CMyController extends CController
 		$controller = $this->id;
         $action = $this->action->id;
 		
-		
+		$autoCScript = AutoCScript::getInstance();
+		$autoCScript->init();
+	
 		if(!Yii::app()->adminuser->isGuest){
 			$userInfo = Yii::app()->adminuser->userInfo;
 			$this->userID = $userInfo['id'];

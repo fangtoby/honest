@@ -21,7 +21,30 @@ class Controller extends CController
 	 */
 	public $breadcrumbs=array();
 	
+	public $_ecore;
+	public $_ehtml;
 	
+	protected function beforeRender($view){
+		$cs = Yii::app()->clientScript;
+		$this->_ecore=Ecore::__getEcore();
+		$cs->coreScriptPosition = CClientScript::POS_HEAD;
+		$clientScripts = array(
+						'js'=>array(
+							array('', '')
+						)
+					);
+		$this->_ehtml = $this->_ecore->initClientScript(YII_DEBUG, $clientScripts, true);
+		return true;
+	}
+	
+	public function beforeAction($action)
+	{
+		
+		$autoCScript = AutoCScript::getInstance();
+		$autoCScript->init();	
+		
+		return true;
+	}
 	/*
 	 * Load CSS & Javascript file
 	 * Date: Thursday, 27.12.2012  9:09
