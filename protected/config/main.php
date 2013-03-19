@@ -120,7 +120,7 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=honest_lies',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => '',
+			'password' => 'root',
 			'charset' => 'utf8',
 		),
 		'errorHandler'=>array(

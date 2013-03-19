@@ -3,13 +3,21 @@
 $this->breadcrumbs=array(
 	$this->module->id,
 );
-?>
 
-<p>
-This is the view content for action "<?php echo $this->action->id; ?>".
-The action belongs to the controller "<?php echo get_class($this); ?>"
-in the "<?php echo $this->module->id; ?>" module.
-</p>
-<p>
-You may customize this page by editing <tt><?php echo __FILE__; ?></tt>
-</p>
+
+ if(!isset($_SESSION['user_agent'])){ 
+           $_SESSION['user_agent'] = MD5($_SERVER['REMOTE_ADDR'] 
+           .$_SERVER['HTTP_USER_AGENT']); 
+       }
+
+       /* 如果用户 session ID是伪造,则重新分配 session ID */ 
+       elseif ($_SESSION['user_agent']!=MD5($_SERVER['REMOTE_ADDR'] 
+       . $_SERVER['HTTP_USER_AGENT'])) { 
+            session_regenerate_id(); 
+       } 
+echo $_SERVER['REMOTE_ADDR'].'<br />';
+echo $_SERVER['HTTP_USER_AGENT'].'<br />';
+
+
+
+?>
