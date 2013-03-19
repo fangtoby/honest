@@ -10,15 +10,13 @@ if(Yii::app()->request->isAjaxRequest) {
 		else {
 			echo "it is not an AJAX Call"."<br />";
 		}
-if(isset(Yii::app()->adminuser->id)){
+if(isset(Yii::app()->adminuser->id) && isset(Yii::app()->adminuser->userInfo)){
+	var_dump(Yii::app()->adminuser->userInfo);
 	echo "Hello :".Yii::app()->adminuser->id."<br />";
 }
 //Yii::app()->adminuser->loginRequired();
 //echo Yii::app()->request->isAjaxRequest == true ? "Is Ajax Request":"It normal Request";
-
-
-
-var_dump(Yii::app()->homeUrl)."<br />";
+//var_dump(Yii::app()->homeUrl)."<br />";
 
 ?>
 

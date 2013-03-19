@@ -1,14 +1,19 @@
 <?php
 /*
+*Auto Create Script Ac
 *Basic On Yii Framework
 *@Author Honest_lies
 *@Modules Single
 *@Date	2013-03-19  8:44
 *
+*[example]
+*$autoCScript = AutoCScript::getInstance();
+*$autoCScript->init();
+*[/example]
 */
+
 class AutoCScript{//Auto Create Script Or Css File 	
 	
-	private static $_instance;
 	private $scriptPath;
 	private $ds = '/';
 	private $dot = '.';
@@ -19,6 +24,7 @@ class AutoCScript{//Auto Create Script Or Css File
 	private $controllerId;
 	private $actionId;
 	
+	private static $_instance;
 	
 	private function __construct(){
 	}
@@ -39,28 +45,42 @@ class AutoCScript{//Auto Create Script Or Css File
 		if($enviroment === true){
 			$this->setScriptPath();
 			$this->setAllNeedId();
-			$this->mkdirIfNotExist($this->scriptPath);
+			$this->mkdirIfNotExist(array($this->scriptPath));
 			if($this->moduleId != null){
 				$modulesPath = $this->scriptPath.$this->modulesField;
-				$modulesItem = $this->scriptPath.$this->modulesField.$this->ds.$this->moduleId;
-				$modulesControllerPath = $this->scriptPath.$this->modulesField.$this->ds.$this->moduleId.$this->ds.$this->controllerId;
-				$this->mkdirIfNotExist($modulesPath);
-				$this->mkdirIfNotExist($modulesItem);
-				$this->mkdirIfNotExist($modulesControllerPath);
+				$modulesItem = $modulesPath.$this->ds.$this->moduleId;
+				$modulesControllerPath = $modulesItem.$this->ds.$this->controllerId;
+				$this->mkdirIfNotExist(array($modulesPath,$modulesItem,$modulesControllerPath));
 				$this->createScript($modulesControllerPath,true);
 			}else{
 				$controllerPath = $this->scriptPath.$this->controllerId;
-				$this->mkdirIfNotExist($controllerPath);
+				$this->mkdirIfNotExist(array($controllerPath));
 				$this->createScript($controllerPath);
 			}
 		}
 	}
 	
-	public function mkdirIfNotExist($path)
+	public function setScriptPath()
 	{
-		if(file_exists($path) && is_dir($path)){
-		}else{
-			mkdir($path,0777);	
+		$this->scriptPath = Yii::getPathOfAlias('webroot').$this->ds.$this->suffix.$this->ds;
+	}
+	
+	public function setAllNeedId()
+	{
+		$this->moduleId     = Yii::app()->controller->module ? strtolower(Yii::app()->controller->module->id) : null;
+		$this->controllerId = strtolower(Yii::app()->controller->id);
+		$this->actionId     = strtolower(Yii::app()->controller->action->id);
+	}
+	
+	public function mkdirIfNotExist($path=array())
+	{
+		foreach($path as $key=>$value)
+		{
+			if(file_exists($value) && is_dir($value)){
+			}else{
+				mkdir($value,0777);	
+			}
+			
 		}
 		return true;
 	}
@@ -100,16 +120,5 @@ class AutoCScript{//Auto Create Script Or Css File
 		}
 	}
 	
-	public function setScriptPath()
-	{
-		$this->scriptPath = Yii::getPathOfAlias('webroot').$this->ds.$this->suffix.$this->ds;
-	}
-	
-	public function setAllNeedId()
-	{
-		$this->moduleId     = Yii::app()->controller->module ? strtolower(Yii::app()->controller->module->id) : null;
-		$this->controllerId = strtolower(Yii::app()->controller->id);
-		$this->actionId     = strtolower(Yii::app()->controller->action->id);
-	}
 	
 }

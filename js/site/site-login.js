@@ -1,7 +1,7 @@
 /*
-* Script Create By Class RelationScript
-* Class File Name relationScript.php
-* Data:2013/03/19 09:00:22
+* Script Create By Class AutoCScript
+* Class File Name AutoCScript.php
+* Data:2013/03/19 13:34:14
 * Relation Controller [site]
 * Relation Action [login]
 */

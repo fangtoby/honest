@@ -78,14 +78,18 @@ class CMyController extends CController
 		$autoCScript = AutoCScript::getInstance();
 		$autoCScript->init();
 	
-		if(!Yii::app()->adminuser->isGuest){
+		if(!Yii::app()->adminuser->isGuest && isset(Yii::app()->adminuser->userInfo)){
 			$userInfo = Yii::app()->adminuser->userInfo;
 			$this->userID = $userInfo['id'];
 		}else{
 			  if(in_array($controller,array('default')) && in_array($action,array('index','login','try'))){
 			  }else{
-				  echo CJSON::encode(array('loginStatus'=>'false'));
-				  Yii::app()->end();
+				  if(Yii::app()->request->isAjaxRequest){
+					  echo CJSON::encode(array('loginStatus'=>'false'));
+				  	  Yii::app()->end();
+				  }else{
+						Yii::app()->adminuser->loginRequired();  
+				  }
 			  }
 		}
 		return true;

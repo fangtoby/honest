@@ -21,8 +21,6 @@ class DefaultController extends CMyController
 	
 	public function actionTry()
 	{
-		
-		
 		$this->render('try');
 	}
 	

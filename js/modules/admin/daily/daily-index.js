@@ -1,14 +1,14 @@
 /*
 * Script Create By Class AutoCScript
 * Class File Name AutoCScript.php
-* Data:2013/03/19 13:36:00
+* Data:2013/03/19 13:42:28
 * Relation Modules [admin]
-* Relation Controller [default]
+* Relation Controller [daily]
 * Relation Action [index]
 */
-function defaultIndexAction(){
+function dailyIndexAction(){
 }
-defaultIndexAction.prototype = {
+dailyIndexAction.prototype = {
 	delayed : false,//false/true
 	init:function(){
 		var _self = this;
