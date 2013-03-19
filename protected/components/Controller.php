@@ -30,7 +30,7 @@ class Controller extends CController
 		$cs->coreScriptPosition = CClientScript::POS_HEAD;
 		$clientScripts = array(
 						'js'=>array(
-							array('', '')
+							array('lottery', '')
 						)
 					);
 		$this->_ehtml = $this->_ecore->initClientScript(YII_DEBUG, $clientScripts, true);

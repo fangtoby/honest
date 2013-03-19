@@ -1,7 +1,7 @@
 /*
 * Script Create By Class RelationScript
 * Class File Name relationScript.php
-* Data:2013/03/18 22:13:56
+* Data:2013/03/19 09:00:21
 * Relation Controller [site]
 * Relation Action [contact]
 */

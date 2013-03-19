@@ -1,5 +1,11 @@
 <?php
-
+/*
+*Basic On Yii Framework
+*@Author Honest_lies
+*@Modules Single
+*@Date	2013-03-19  8:44
+*
+*/
 class AutoCScript{//Auto Create Script Or Css File 	
 	
 	private static $_instance;
@@ -65,11 +71,11 @@ class AutoCScript{//Auto Create Script Or Css File
 		$funcName = $this->controllerId.ucfirst($this->actionId);
 		$fileName = $this->controllerId.$this->lin.$this->actionId;
 		
-		if(!file_exists($path.$this->ds.$fileName.$this->suffix)){
+		if(!file_exists($path.$this->ds.$fileName.$this->dot.$this->suffix)){
 				$content = "";
 				$content .= "/*\n";
-				$content .= "* Script Create By Class RelationScript\n";
-				$content .= "* Class File Name relationScript.php\n";
+				$content .= "* Script Create By Class AutoCScript\n";
+				$content .= "* Class File Name AutoCScript.php\n";
 				$content .= "* Data:".date("Y/m/d H:i:s")."\n";
 				if($modules){
 					$content .= "* Relation Modules [".$this->moduleId."]\n";	
@@ -87,11 +93,9 @@ class AutoCScript{//Auto Create Script Or Css File
 				$content .= "}\n";
 				
 				$fp = fopen($path.$this->ds.$fileName.$this->dot.$this->suffix,'w+');
-				
 				if($fp){
 					fwrite($fp,$content,strlen($content));	
 				}
-				
 				fclose($fp);
 		}
 	}

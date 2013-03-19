@@ -42,9 +42,6 @@ class DefaultController extends CMyController
 			}else{
 				$param['times'] = 1;
 			}
-			if(IS_AJAX){
-				$param['requestWays']= 'It Ajax!';
-			}
 			if(is_object($param)){
 				echo CJSON::encode(array('note'=>'is object in php!'));
 			}
