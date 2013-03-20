@@ -11,3 +11,9 @@
 	
 	@session_set_save_handler();
 ?>
+<h2>Yii Framework Path</h2>
+<?php
+	echo YII_PATH.'<br />';
+	echo Yii::app()->basePath.'<br />';
+	var_dump(Yii::$classMap);
+?>
