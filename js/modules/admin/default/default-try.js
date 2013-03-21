@@ -28,8 +28,8 @@ defaultTryAction.prototype = {
 					isAjax:'true',
 					json:obj
 				},
-				//url: 'http://localhost:8000/honest/admin/default/forajax',
-				url: 'http://localhost/DA/honest/index.php/admin/default/forajax',
+				url: 'http://117.144.138.164:8000/honest/index.php/admin/default/forajax',
+				//url: 'http://localhost/DA/honest/index.php/admin/default/forajax',
 				success: function(datas){ 
 					obj = datas;
 					$('#json').html("<div>"+self.Obj2str(datas)+"</div>");
