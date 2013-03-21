@@ -277,7 +277,7 @@ class Ecore
         // cache main css & js then ...
       }
       if (self::$__ehtml->actJs) {
-        $this->cs->registerScript(2, '$.lottery.app.page = new ' . self::$__ehtml->actJs . 'Action();', CClientScript::POS_END);
+        $this->cs->registerScript(2, '$.Honest.app.page = new ' . self::$__ehtml->actJs . 'Action();', CClientScript::POS_END);
       }
       // for import
       foreach ($this->importFiles as $file) {

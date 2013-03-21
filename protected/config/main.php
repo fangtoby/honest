@@ -19,7 +19,7 @@ return array(
 	*/
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Honest Lies',
-	'language'=>'zh_CN',
+	'language'=>'es',
 	/*
 	*
 	*'language'=>'zh_CN', is frist
@@ -78,7 +78,7 @@ return array(
 	'components'=>array(
 		'user'=>array(
 			// enable cookie-based authentication
-			'allowAutoLogin'=>false,
+			'allowAutoLogin'=>true,
 		),
 		// uncomment the following to enable URLs in path-format
 		//

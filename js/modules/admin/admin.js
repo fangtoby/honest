@@ -1,10 +1,10 @@
-$.fn.lottery = function(){};
-$.lottery = $.fn.lottery.prototype;
-$.lottery = {
+$.fn.Honest = function(){};
+$.Honest = $.fn.Honest.prototype;
+$.Honest = {
 		info:{
-			projectName:'Lottery',
+			projectName:'Honest',
 			date:'2012/12/27',
-			creater:'fang.yanliang',
+			creater:'Honest_lies',
 			version:'0.1'
 		},
 		url:{
@@ -27,9 +27,9 @@ $.lottery = {
 		app:{
 			page:undefined,
 			init:function(){
-					if ($.lottery.app.page !== undefined) {
-						if (!$.lottery.app.page.delayed) {
-								$.lottery.app.page.init.call($.lottery.app.page);
+					if ($.Honest.app.page !== undefined) {
+						if (!$.Honest.app.page.delayed) {
+								$.Honest.app.page.init.call($.Honest.app.page);
 						}
 					}
 			}
@@ -39,7 +39,7 @@ $.lottery = {
 
 $(document).ready(function() {
 	
-		$.lottery.app.init();
+		$.Honest.app.init();
 		
 		var addLoading={
 				bodySign:'#loading',

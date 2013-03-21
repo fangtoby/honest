@@ -19,14 +19,8 @@
 </head>
 
 <body>
-
-<div class="container" id="page">
-
-	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
-	</div><!-- header -->
-
-	<div id="mainmenu">
+<div class="header-main">
+	<div id="mainmenu" class="clearfix">
 		<?php $this->widget('application.extensions.cmenu.CMMenu',array(
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/admin/default/')),
@@ -36,7 +30,14 @@
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
 		)); ?>
+        <div class="title">
+        	<a href="#">HL</a>
+        </div>
 	</div><!-- mainmenu -->
+</div>
+<div class="container" id="page">
+
+	
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 			'links'=>$this->breadcrumbs,
@@ -44,14 +45,6 @@
 	<?php endif?>
 
 	<?php echo $content; ?>
-
-	<div class="clear"></div>
-
-	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
-	</div><!-- footer -->
 
 </div><!-- page -->
 

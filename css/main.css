@@ -12,19 +12,19 @@ body
 	margin-top: 5px;
 	margin-bottom: 5px;
 	background: white;
-	border: 1px solid #C9E0ED;
+	border: 1px solid #ddd;
 }
 
 #header
 {
 	margin: 0;
 	padding: 0;
-	border-top: 3px solid #C9E0ED;
 }
 
 #content
 {
     padding: 20px;
+	min-height:345px;
 }
 
 #sidebar
@@ -38,7 +38,6 @@ body
 	margin: 10px 20px;
 	font-size: 0.8em;
 	text-align: center;
-	border-top: 1px solid #C9E0ED;
 }
 
 #logo
@@ -49,13 +48,14 @@ body
 
 #mainmenu
 {
-	background:white url(bg.gif) repeat-x left top;
 }
 
 #mainmenu ul
 {
-	padding:6px 20px 5px 20px;
+	padding:10px 20px 10px 20px;
 	margin:0px;
+	display:inline-block;
+	float:right;
 }
 
 #mainmenu ul li
@@ -65,21 +65,37 @@ body
 
 #mainmenu ul li a
 {
-	color:#ffffff;
+	color:#fff;
 	background-color:transparent;
 	font-size:12px;
 	font-weight:bold;
 	text-decoration:none;
-	padding:5px 8px;
+	padding:10px 8px;
+	border:#0074c5 solid 1px;
 }
-
-#mainmenu ul li a:hover, #mainmenu ul li.active a
+#mainmenu ul li a:hover{
+	color: #F90;
+	}
+#mainmenu ul li.active a
 {
-	color: #6399cd;
-	background-color:#EFF4FA;
+	color: #F90;
+	background-color:#0074c5;
 	text-decoration:none;
+	border-right:#015b9a solid 1px;
+	border-left:#015b9a solid 1px;
 }
-
+div.title{
+	float:left;
+	height:36px;
+	}
+div.title a{
+	display:block;
+	line-height:36px;
+	color:#fff;
+	padding:0 20px;
+	font-size:30px;
+	height:36px;
+	}
 div.flash-error, div.flash-notice, div.flash-success
 {
 	padding:.8em;
@@ -227,3 +243,47 @@ div.search-form
 {
 	background: #80CFFF;
 }
+div.div-item{
+	margin-bottom:20px;
+	}
+h2.items-title{
+	color:#06C;
+	margin:0;
+	line-height:30px;
+	height:30px;
+	display:block;
+	}
+div.item-block{
+	padding:10px;
+	border:solid #ddd 1px;
+	background-color:#eee;
+	}
+div.item-block:hover{
+	background-color:#f9f9f9;
+	}
+div.add-transition{
+	-moz-transition: all 0.5s ease-out;
+	-webkit-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+	transition: all 0.5s ease-out;
+	}
+div.header-main{
+	width:100%;
+	background-color:#0074c5;
+	border-bottom:solid 1px #015b9a;
+	min-width:952px;
+	}
+div.site-index{
+	background:url(../images/261403.jpg) center center no-repeat;
+	}
+div.site-index h2{
+	display:block;
+	background-color:#fff;
+	width:300px;
+	text-align:center;
+	margin:0;
+	height:40px;
+	color:#555;
+	border-left:solid 3px #FC3;
+	line-height:40px;
+	}

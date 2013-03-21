@@ -1,5 +1,5 @@
 $.fn.Honest = function(){};
-$.Honest = $.fn.lottery.prototype;
+$.Honest = $.fn.Honest.prototype;
 $.Honest = {
 		info:{
 			projectName:'Honest',
