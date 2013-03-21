@@ -39,7 +39,8 @@ class Controller extends CController
 	
 	public function beforeAction($action)
 	{
-		
+		//Clear bellow when in product model
+		//
 		$autoCScript = AutoCScript::getInstance();
 		$autoCScript->init();	
 		

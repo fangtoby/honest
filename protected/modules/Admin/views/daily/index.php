@@ -1,5 +1,7 @@
-<h2>PHP 读写XML文件</h2>
-<?php
+<div class="div-item">
+    <h2 class="items-title">PHP Read & Write XML File</h2>
+    <div id="json" class="item-block add-transition">
+   <?php
 	//echo Yii::getPathOfAlias('webroot').'/protected/data/songs.xml';
 	$xmlPath = Yii::getPathOfAlias('webroot').'/protected/data/songs.xml';
 	/*
@@ -29,3 +31,5 @@
 	$doc->save($xmlPath);
 	
 ?>
+    </div>
+</div>
