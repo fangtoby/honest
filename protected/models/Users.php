@@ -16,11 +16,18 @@
  */
 class Users extends CActiveRecord
 {
+	public $rpassword;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
 	 * @return Users the static model class
 	 */
+	public function initClear()
+	{
+		$this->password = '';	
+		$this->rpassword = '';	
+	}
+	
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -42,10 +49,13 @@ class Users extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, email, loginfrequency, updatetime', 'required'),
-			array('userpower, loginfrequency', 'numerical', 'integerOnly'=>true),
+			array('username, password,rpassword,email', 'required'),
+			array('email','email'),
+			array('updatetime','addUpdateTime','on'=>'update'),
+			array('createtime , updatetime','addTime','on'=>'create'),
+			array('email','itMusebeOnly','on'=>'create'),
+			array('password', 'compare', 'compareAttribute'=>'rpassword'),
 			array('username, password, email, userimage', 'length', 'max'=>255),
-			array('createtime', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('uid, username, password, email, userimage, userpower, loginfrequency, createtime, updatetime', 'safe', 'on'=>'search'),
@@ -105,5 +115,25 @@ class Users extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+	
+	public function itMusebeOnly($attribute,$params)
+	{
+		if(isset($this->email)){
+			$user = Users::model()->find('email = :email',array(':email'=>$this->email));
+			if(count($user)){
+				$this->addError('email','email exist.input a new email.');
+			}
+		}
+	}
+	public function addUpdateTime($attribute,$params)
+	{
+		$this->updatetime = Util::getTime(time());
+	}
+	public function addTime($attribute,$params)
+	{
+		$now = Util::getTime(time());
+		$this->updatetime = $now;
+		$this->createtime = $now;
 	}
 }

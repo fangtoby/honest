@@ -74,7 +74,7 @@ class Util {
     }
     
     public static function getTime($timestamp){
-    	return date("YmdHis", $timestamp);
+    	return date("Y-m-d H:i:s", $timestamp);
     }
     public static function getYearAndMouth($timestamp){
 		return date("Ym", $timestamp);

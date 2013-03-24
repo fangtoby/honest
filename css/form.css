@@ -97,7 +97,6 @@ div.form textarea.error,
 div.form select.error
 {
 	background: #FEE;
-	border-color: #C00;
 }
 
 div.form div.success input,
@@ -129,6 +128,10 @@ div.form .errorMessage
 {
 	color: red;
 	font-size: 0.9em;
+	-moz-transition: all 0.5s ease-out;
+	-webkit-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+	transition: all 0.5s ease-out;
 }
 
 div.form .errorSummary p
@@ -161,4 +164,13 @@ div.wide.form .buttons, div.wide.form .hint, div.wide.form .errorMessage
 {
 	clear: left;
 	padding-left: 110px;
+}
+.form input[type=text], .form input[type=password], .form input[type=email], .form input[type=number], .form input[type=tel], .form textarea {
+	width: 18.544em;
+	padding: 4px 8px;
+	font-family: "Segoe UI", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", "BBAlpha Sans", "S60 Sans", Arial, "sans-serif";
+	font-size: 100%;
+	color: #212121;
+	border: 1px solid rgb(186,186,186);
+	background-color: rgba(255,255,255,0.8);
 }

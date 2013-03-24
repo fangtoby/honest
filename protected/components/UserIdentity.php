@@ -17,17 +17,19 @@ class UserIdentity extends CUserIdentity
 	 */
 	public function authenticate()
 	{
-		$users=array(
-			// username => password
-			'demo'=>'demo',
-			'admin'=>'admin',
-		);
-		if(!isset($users[$this->username]))
+		$user = Users::model()->find('email = :email',array(':email'=>$this->username));
+		if(!count($user)){
 			$this->errorCode=self::ERROR_USERNAME_INVALID;
-		elseif($users[$this->username]!==$this->password)
+		}elseif($user->password !== hash('sha256', $this->password)){
 			$this->errorCode=self::ERROR_PASSWORD_INVALID;
-		else
+		}else{
+			$this->setState('uid', $user->uid);
+			$this->setState('name', $user->username);
+			$this->setState('email', $user->email);
+			$this->setState('last_login_time', $user->updatetime);
+			$user->saveAttributes(array('updatetime'=>date('Y-m-d H:i:s'),'loginfrequency' => $user->loginfrequency + 1));
 			$this->errorCode=self::ERROR_NONE;
-		return !$this->errorCode;
+		}
+		return $this->errorCode;
 	}
 }

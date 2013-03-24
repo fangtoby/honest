@@ -49,7 +49,13 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'username',
 		'password',
 		'email',
-		'userimage',
+		array(
+			 'name'=>'userimage', 
+			 'type'=>'html',
+			 'value'=>'CHtml::image(Yii::app()->request->baseUrl."/images/".$data->userimage.".jpg","",array("style"=>"width:25px;height:25px;"))',
+			'htmlOptions' => array('style'=>'text-align:center;'),
+			 //'value'=>'CHtml::image(Yii::app()->request-baseUrl."/images/"'.$model["userimage"].'".jpg",array("height"=>30))'
+		),
 		'userpower',
 		/*
 		'loginfrequency',

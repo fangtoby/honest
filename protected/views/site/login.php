@@ -8,11 +8,14 @@ $this->breadcrumbs=array(
 	'Login',
 );
 ?>
-
+<?php
+	if(Yii::app()->user->hasFlash('message')){
+?>
+	<div class="ms-success"> <?php echo Yii::t('message',Yii::app()->user->getFlash('message')); ?></div>
+<?php
+	}
+?>
 <h1>Login</h1>
-
-<p>Please fill out the following form with your login credentials:</p>
-
 <div class="form">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'login-form',
@@ -21,13 +24,12 @@ $this->breadcrumbs=array(
 		'validateOnSubmit'=>true,
 	),
 )); ?>
-
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'username'); ?>
-		<?php echo $form->textField($model,'username'); ?>
-		<?php echo $form->error($model,'username'); ?>
+		<?php echo $form->labelEx($model,'email'); ?>
+		<?php echo $form->textField($model,'email'); ?>
+		<?php echo $form->error($model,'email'); ?>
 	</div>
 
 	<div class="row">
@@ -46,7 +48,7 @@ $this->breadcrumbs=array(
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Login'); ?>
+		<?php echo CHtml::submitButton('Login',array('class'=>'buttom')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

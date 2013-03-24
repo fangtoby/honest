@@ -24,6 +24,77 @@ class Controller extends CController
 	public $_ecore;
 	public $_ehtml;
 	
+	public $uid;
+	
+	public function filters(){
+		return array('checkUser');
+	}
+	
+	public function filterCheckUser($filterChain)
+	{
+		$controller = $this->id;
+        $action = $this->action->id;
+		
+		$hostInfo = isset($_SERVER['HTTP_X_FORWARDED_HOST']) ? 'https://' . $_SERVER['HTTP_X_FORWARDED_HOST'] : Yii::app()->getRequest()->getHostInfo();
+        $uri = Yii::app()->getRequest()->getRequestUri();
+        
+        $uri = urldecode($uri);
+		
+        if(in_array($controller,array('site')) && in_array($action,array('login','error'))){
+        	$filterChain->run();
+            return true;
+        }
+		if(!Yii::app()->user->isGuest && isset(Yii::app()->user->uid)){
+			$user = Users::model()->find('uid = :uid', array(':uid'=>Yii::app()->user->uid));
+			if($user === null){
+				 if(Yii::app()->request->isAjaxRequest){
+					  echo CJSON::encode(array('loginStatus'=>'false'));
+				  	  Yii::app()->end();
+				  }else{
+					  	Yii::app()->user->setFlash('message',"loginRequired");
+						Yii::app()->user->loginRequired();  
+				  }
+			}else{
+				$this->uid = Yii::app()->user->uid;
+			}
+		}
+		$filterChain->run();
+	}
+	
+	public function beforeAction($action)
+	{
+		$autoCScript = AutoCScript::getInstance();
+		$autoCScript->init();	
+		$controller = $this->id;
+        $action = $this->action->id;
+		if(!Yii::app()->user->isGuest && isset(Yii::app()->user->uid)){
+			$user = Users::model()->find('uid = :uid', array(':uid'=>Yii::app()->user->uid));
+			if($user === null){
+				 if(Yii::app()->request->isAjaxRequest){
+					  echo CJSON::encode(array('loginStatus'=>'false'));
+				  	  Yii::app()->end();
+				  }else{
+					  	Yii::app()->user->setFlash('message',"error");
+						Yii::app()->user->loginRequired();  
+				  }
+			}else{
+				$this->uid = Yii::app()->user->uid;
+			}
+		}else{
+			  if(in_array($controller,array('site')) && in_array($action,array('login','error'))){
+			  }else{
+				  if(Yii::app()->request->isAjaxRequest){
+					  echo CJSON::encode(array('loginStatus'=>'false'));
+				  	  Yii::app()->end();
+				  }else{
+					  	Yii::app()->user->setFlash('message',"loginRequired");
+						Yii::app()->user->loginRequired();  
+				  }
+			  }
+		}
+		return true;
+	}
+	
 	protected function beforeRender($view){
 		$cs = Yii::app()->clientScript;
 		$this->_ecore=Ecore::__getEcore();
@@ -37,15 +108,6 @@ class Controller extends CController
 		return true;
 	}
 	
-	public function beforeAction($action)
-	{
-		//Clear bellow when in product model
-		//
-		$autoCScript = AutoCScript::getInstance();
-		$autoCScript->init();	
-		
-		return true;
-	}
 	/*
 	 * Load CSS & Javascript file
 	 * Date: Thursday, 27.12.2012  9:09

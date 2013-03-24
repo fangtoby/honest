@@ -10,7 +10,6 @@ $this->breadcrumbs=array(
 ?>
 
 <h1>Contact Us</h1>
-
 <?php if(Yii::app()->user->hasFlash('contact')): ?>
 
 <div class="flash-success">
