@@ -13,6 +13,7 @@ class LoginForm extends CFormModel
 	public $rememberMe;
 
 	private $_identity;
+	public $verifyCode;
 
 	/**
 	 * Declares the validation rules.
@@ -29,6 +30,7 @@ class LoginForm extends CFormModel
 			array('rememberMe', 'boolean'),
 			// password needs to be authenticated
 			array('password', 'authenticate'),
+			array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements()),
 		);
 	}
 
@@ -39,6 +41,7 @@ class LoginForm extends CFormModel
 	{
 		return array(
 			'rememberMe'=>'Remember me next time',
+			'verifyCode'=>'Verification Code',
 		);
 	}
 

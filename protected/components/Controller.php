@@ -40,7 +40,7 @@ class Controller extends CController
         
         $uri = urldecode($uri);
 		
-        if(in_array($controller,array('site')) && in_array($action,array('login','error'))){
+        if(in_array($controller,array('site')) && in_array($action,array('login','error','captcha'))){
         	$filterChain->run();
             return true;
         }
@@ -81,7 +81,7 @@ class Controller extends CController
 				$this->uid = Yii::app()->user->uid;
 			}
 		}else{
-			  if(in_array($controller,array('site')) && in_array($action,array('login','error'))){
+			  if(in_array($controller,array('site')) && in_array($action,array('login','error','captcha'))){
 			  }else{
 				  if(Yii::app()->request->isAjaxRequest){
 					  echo CJSON::encode(array('loginStatus'=>'false'));
