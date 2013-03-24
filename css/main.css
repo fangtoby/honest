@@ -24,7 +24,7 @@ body
 
 #content
 {
-    padding: 20px;
+    padding:0px 15px 10px 15px;
 	min-height:345px;
 }
 
@@ -151,7 +151,8 @@ div.view
 div.breadcrumbs
 {
 	font-size: 0.9em;
-	padding: 5px 20px;
+	padding:10px 15px;
+	float:left;
 }
 
 div.breadcrumbs span
@@ -186,7 +187,10 @@ div.search-form
 	margin: 0;
 	color: #298dcd;
 }
-
+#sidebar{
+	float:right;
+	padding:10px 15px;
+	}
 .portlet-content
 {
 	font-size:0.9em;
@@ -219,29 +223,28 @@ div.search-form
 .operations li
 {
 	padding-bottom: 2px;
-	float:left;
+	float:right;
 }
 
 .operations li a
 {
 	font: bold 12px Arial;
-	color: #0066A4;
+	color: #0074c5;
 	display:inline-block;
 	float:left;
-	padding: 2px 0 2px 8px;
+	padding: 2px 8px 2px 8px;
+	margin-left:1px;
+	border-bottom:solid 1px #0074c5;
 	line-height: 15px;
 	text-decoration: none;
 }
 
-.operations li a:visited
-{
-	color: #0066A4;
-}
-
 .operations li a:hover
 {
-	background: #80CFFF;
+	border-bottom-color:#C00;
+	color: #C00;
 }
+
 div.div-item{
 	margin-bottom:20px;
 	}

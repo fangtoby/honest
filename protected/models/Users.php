@@ -54,6 +54,7 @@ class Users extends CActiveRecord
 			array('updatetime','addUpdateTime','on'=>'update'),
 			array('createtime , updatetime','addTime','on'=>'create'),
 			array('email','itMusebeOnly','on'=>'create'),
+			array('email','itMusebeSelf','on'=>'update'),
 			array('password', 'compare', 'compareAttribute'=>'rpassword'),
 			array('username, password, email, userimage', 'length', 'max'=>255),
 			// The following rule is used by search().
@@ -122,6 +123,15 @@ class Users extends CActiveRecord
 		if(isset($this->email)){
 			$user = Users::model()->find('email = :email',array(':email'=>$this->email));
 			if(count($user)){
+				$this->addError('email','email exist.input a new email.');
+			}
+		}
+	}
+	public function itMusebeSelf($attribute,$params)
+	{
+		if(isset($this->email)){
+			$user = Users::model()->find('email = :email',array(':email'=>$this->email));
+			if($this->email == $user->email && $this->uid != $user->uid){
 				$this->addError('email','email exist.input a new email.');
 			}
 		}

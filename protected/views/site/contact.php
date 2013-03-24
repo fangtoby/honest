@@ -7,6 +7,13 @@ $this->pageTitle=Yii::app()->name . ' - Contact Us';
 $this->breadcrumbs=array(
 	'Contact',
 );
+
+$this->menu=array(
+		array('label'=>'Home', 'url'=>array('/site')),
+		array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
+		array('label'=>'Contact', 'url'=>array('/site/contact')),
+);
+
 ?>
 
 <h1>Contact Us</h1>

@@ -66,8 +66,13 @@ class UsersController extends Controller
 		if(isset($_POST['Users']))
 		{
 			$model->attributes=$_POST['Users'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->uid));
+			if($model->validate('update')){
+				$model->password = hash('sha256', $model->password);
+				$model->rpassword = hash('sha256', $model->rpassword);
+				if($model->save()){
+					$this->redirect(array('view','id'=>$model->uid));
+				}
+			}
 		}
 		$model->initClear();
 		$this->render('update',array(
