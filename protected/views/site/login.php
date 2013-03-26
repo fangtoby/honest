@@ -1,12 +1,6 @@
 <?php
-/* @var $this SiteController */
-/* @var $model LoginForm */
-/* @var $form CActiveForm  */
 
 $this->pageTitle=Yii::app()->name . ' - Login';
-$this->breadcrumbs=array(
-	'Login',
-);
 ?>
 <?php
 	if(Yii::app()->user->hasFlash('message')){
@@ -15,8 +9,14 @@ $this->breadcrumbs=array(
 <?php
 	}
 ?>
+<div class="login-frame clearfix">
+<div class="left-side-targer">
+	<div class="side-img-main">
+    	<img src="<?=Yii::app()->request->baseUrl;?>/images/4178-sephiroth-1920x1200-game-wallpaper.jpg"  />
+    </div>
+</div>
+<div class="login-form form">
 <h1>Login</h1>
-<div class="form">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'login-form',
 	'enableClientValidation'=>true,
@@ -64,3 +64,4 @@ $this->breadcrumbs=array(
 
 <?php $this->endWidget(); ?>
 </div><!-- form -->
+</div>
