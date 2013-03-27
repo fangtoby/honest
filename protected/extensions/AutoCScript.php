@@ -1,45 +1,56 @@
 <?php
 /*
-*Auto Create Script Ac
-*Basic On Yii Framework
-*@Author Honest_lies
-*@Modules Single
-*@Date	2013-03-19  8:44
-*
-*[example]
-*$autoCScript = AutoCScript::getInstance();
-*$autoCScript->init();
-*[/example]
+	*Auto Create Script Ac
+	*Basic On Yii Framework
+	*@Author Honest_lies[fangtoby6@gmail.com]
+	*@Modules Singleton classes
+	*@Date	2013-03-19  8:44
+	*
+	*[example]
+	*$autoCScript = AutoCScript::getInstance();
+	*$autoCScript->init();
+	*[/example]
 */
 
 class AutoCScript{//Auto Create Script Or Css File 	
 	
 	private $scriptPath;
 	private $ds = '/';
+	private $actionId;
 	private $dot = '.';
 	private $lin = '-';
-	private $suffix = 'js';
-	private $modulesField = 'modules';
 	private $moduleId='';
 	private $controllerId;
-	private $actionId;
+	private $suffix = 'js';
+	private $modulesField = 'modules';
 	
 	private static $_instance;
 	
-	private function __construct(){
+	private function __construct()
+	{
+		
 	}
-	
-	public function __clone(){
+	public function __tostring()
+	{
+		return "This class will auto create Javscript file according to this moment controller and action";
+	}
+	public function __clone()
+	{
 		trigger_error('Clone is not allow!',E_USER_ERROR);	
 	}
-	
-	public static function getInstance(){
+	/*
+	*Create Singleton classes function
+	*/
+	public static function getInstance()
+	{
 		if(!(self::$_instance instanceof self)){
 			self::$_instance = new self;
 		}	
 		return self::$_instance;
 	}
-	
+	/*
+	*Main login function
+	*/
 	public function init($enviroment=true)
 	{
 		if($enviroment === true){
@@ -59,7 +70,11 @@ class AutoCScript{//Auto Create Script Or Css File
 			}
 		}
 	}
-	
+	/*
+	* Set scirpt file live path 
+	* Use Yii::getPathOfAlias('webroot') fucntion
+	* 
+	*/
 	public function setScriptPath()
 	{
 		$this->scriptPath = Yii::getPathOfAlias('webroot').$this->ds.$this->suffix.$this->ds;
@@ -71,7 +86,9 @@ class AutoCScript{//Auto Create Script Or Css File
 		$this->controllerId = strtolower(Yii::app()->controller->id);
 		$this->actionId     = strtolower(Yii::app()->controller->action->id);
 	}
-	
+	/*
+	*Make direction if it not exist
+	*/
 	public function mkdirIfNotExist($path=array())
 	{
 		foreach($path as $key=>$value)
@@ -84,7 +101,10 @@ class AutoCScript{//Auto Create Script Or Css File
 		}
 		return true;
 	}
-	
+	/*
+	 *Create Script if it not exist
+	 *It will input default Script
+	 */
 	public function createScript($path,$modules = false)
 	{
 

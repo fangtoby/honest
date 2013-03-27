@@ -22,7 +22,7 @@ return array(
 	'language'=>'en_us',
 	/*
 	*
-	*'language'=>'zh_CN', is frist
+	*'language'=>'zh_CN', is frist en_us
 	*
 	*@Note How to use multi-language settings
 	*

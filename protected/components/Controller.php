@@ -21,6 +21,7 @@ class Controller extends CController
 	 */
 	public $breadcrumbs=array();
 	
+	
 	public $_ecore;
 	public $_ehtml;
 	
