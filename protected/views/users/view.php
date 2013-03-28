@@ -15,20 +15,33 @@ $this->menu=array(
 	array('label'=>'Manage Users', 'url'=>array('admin')),
 );
 ?>
-
-<h1>User -(<?php echo $model->username; ?>)</h1>
-
+<div class="items-add-padding">
+<h1><?php echo $model->username; ?></h1>
+</div>
+<div class="detail-view-block">
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
+	'htmlOptions'=>array(
+			'class'=>'hl-detail-view'
+	),
 	'attributes'=>array(
 		'uid',
 		'username',
 		'password',
-		'email',
-		'userimage',
+		array(
+			'name'=>'email',
+			'type'=>'email',
+			'value'=>$model->email,
+		),
+		array(
+			 'name'=>'userimage', 
+			 'type'=>'html',
+			 'value'=>CHtml::image(Yii::app()->request->baseUrl."/images/".$model->userimage.".jpg","",array("style"=>"width:25px;height:25px;")),
+		),
 		'userpower',
 		'loginfrequency',
 		'createtime',
 		'updatetime',
 	),
 )); ?>
+</div>

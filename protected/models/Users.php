@@ -80,15 +80,16 @@ class Users extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'uid' => 'Uid',
-			'username' => 'Username',
+			'uid' => 'User ID',
+			'username' => 'User Name',
 			'password' => 'Password',
-			'email' => 'Email',
-			'userimage' => 'Userimage',
-			'userpower' => 'Userpower',
-			'loginfrequency' => 'Loginfrequency',
-			'createtime' => 'Createtime',
-			'updatetime' => 'Updatetime',
+			'rpassword'=>'Repeat Password again',
+			'email' => 'Email Address',
+			'userimage' => 'image',
+			'userpower' => 'User power',
+			'loginfrequency' => 'Login /HZ',
+			'createtime' => 'Create Time',
+			'updatetime' => 'Update Time',
 		);
 	}
 

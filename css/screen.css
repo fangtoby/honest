@@ -27,7 +27,7 @@ a img {border:none;}
 /* typography.css */
 html {font-size:100.01%;}
 body {font-size:75%;color:#222;background:#fff;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
-h1, h2, h3, h4, h5, h6 {font-weight:normal;color:#111;}
+h1, h2, h3, h4, h5, h6 {font-weight:normal;color:#0074C5;}
 h1 {font-size:2em;line-height:1;padding:0.5em 0;}
 h2 {font-size:1.6em;margin:0.75em 0;}
 h3 {font-size:1.4em;line-height:1;margin-bottom:1em;}

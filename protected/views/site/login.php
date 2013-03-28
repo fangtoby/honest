@@ -16,7 +16,6 @@ $this->pageTitle=Yii::app()->name . ' - Login';
     </div>
 </div>
 <div class="login-form form">
-<h1>Login</h1>
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'login-form',
 	'enableClientValidation'=>true,
@@ -24,16 +23,14 @@ $this->pageTitle=Yii::app()->name . ' - Login';
 		'validateOnSubmit'=>true,
 	),
 )); ?>
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
 	<div class="row">
-		<?php echo $form->labelEx($model,'email'); ?>
+		<?php echo CHtml::activeLabel($model,'email'); ?>
 		<?php echo $form->textField($model,'email'); ?>
 		<?php echo $form->error($model,'email'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'password'); ?>
+		<?php echo CHtml::activeLabel($model,'password'); ?>
 		<?php echo $form->passwordField($model,'password'); ?>
 		<?php echo $form->error($model,'password'); ?>
 		<p class="hint">
@@ -42,7 +39,7 @@ $this->pageTitle=Yii::app()->name . ' - Login';
 	</div>
 	<?php if(CCaptcha::checkRequirements()): ?>
 	<div class="row">
-		<?php echo $form->labelEx($model,'verifyCode'); ?>
+		<?php echo CHtml::activeLabel($model,'verifyCode'); ?>
 		<div>
 		<?php $this->widget('CCaptcha'); ?>
 		</div>
@@ -54,7 +51,7 @@ $this->pageTitle=Yii::app()->name . ' - Login';
 	<?php endif; ?>
 	<div class="row rememberMe">
 		<?php echo $form->checkBox($model,'rememberMe'); ?>
-		<?php echo $form->label($model,'rememberMe'); ?>
+		<?php echo CHtml::activeLabel($model,'rememberMe'); ?>
 		<?php echo $form->error($model,'rememberMe'); ?>
 	</div>
 

@@ -13,7 +13,7 @@ class SiteController extends Controller
 			// captcha action renders the CAPTCHA image displayed on the contact page
 			'captcha'=>array(
 				'class'=>'CCaptchaAction',
-				'backColor'=>0xFFFFFF,
+				'backColor'=>0xEDF7FC,
 			),
 			// page action renders "static" pages stored under 'protected/views/site/pages'
 			// They can be accessed via: index.php?r=site/page&view=FileName
@@ -95,15 +95,7 @@ class SiteController extends Controller
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
 			{
-				
-				$Uuser = Users::model()->findByPK($this->uid);
-				$Uuser->updatetime = date('Y-m-d H:i:s',time());
-				$Uuser->loginfrequency +=1;
-				if($Uuser->save()){
-					$this->redirect("http://www.baidu.com");
-				}else{
-					$this->redirect('login');	
-				}
+				 $this->redirect(Yii::app()->user->returnUrl);
 			}
 		}
 		// display the login form

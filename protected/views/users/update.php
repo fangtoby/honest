@@ -15,7 +15,7 @@ $this->menu=array(
 	array('label'=>'Manage Users', 'url'=>array('admin')),
 );
 ?>
-
-<h1>Update Users <?php echo $model->uid; ?></h1>
-
+<div class="items-add-padding">
+<h1>Update <?php echo $model->username; ?></h1>
+</div>
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
