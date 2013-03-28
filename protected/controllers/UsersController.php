@@ -40,7 +40,8 @@ class UsersController extends Controller
 			if($model->validate('create'))
 				$model->encryption();
 				if($model->save()){
-					$this->redirect(array('view','id'=>$model->uid));
+					Yii::app()->session['nid'] = $model->uid;
+					$this->redirect(array('uploadimg'));
 				}
 		}
 		$model->initClear();
@@ -48,7 +49,38 @@ class UsersController extends Controller
 			'model'=>$model,
 		));
 	}
-
+	
+	public function actionUploadimg()
+	{
+		$model = $this->loadModel(Yii::app()->session['nid']);
+		$session = Yii::app()->session;
+		
+		if(isset($_FILES['userimage'])){
+			$model->scenario='upimage';
+			$model->setFile($_FILES['userimage']);
+			if($model->validate('upimage')){
+				
+			}else{
+				echo "Error";	
+			}
+			$session['user'] = $model;
+			  $this->redirect(array('confirm'));
+		}
+		$this->render('uploadimage',array(
+			'model'=>$model,
+		));
+	}
+	public function actionConfirm()
+	{
+		$session = Yii::app()->session;
+		$model = $session['user'];
+		$model->scenario='saveimage';
+		
+		if($model->validate() && $model->save()){
+			$session->remove('user');
+			$this->redirect(array('admin'));
+		}
+	}
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.

@@ -73,6 +73,5 @@
 	<?php echo $content; ?>
 
 </div><!-- page -->
-
 </body>
 </html>

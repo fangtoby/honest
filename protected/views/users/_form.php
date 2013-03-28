@@ -8,6 +8,9 @@
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'users-form',
+	'htmlOptions' => array(
+        'enctype' => 'multipart/form-data',
+    ),
 	'enableAjaxValidation'=>false,
 )); ?>
 	<div class="row">
@@ -30,12 +33,6 @@
 		<?php echo CHtml::activeLabel($model,'email'); ?>
 		<?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'email'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo CHtml::activeLabel($model,'userimage'); ?>
-		<?php echo $form->textField($model,'userimage',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'userimage'); ?>
 	</div>
 
 	<div class="row buttons">

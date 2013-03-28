@@ -10,7 +10,7 @@ function usersAdminAction(){
 usersAdminAction.prototype = {
 	delayed : false,//false/true
 	inforUrl:{
-		basicUrl:'http://localhost/DA/honest/',	
+		basicUrl:'http://117.144.184.88:8000/honest/',	
 		returnDate:'users/getData'
 	},
 	init:function(){

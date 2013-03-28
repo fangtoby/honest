@@ -25,11 +25,11 @@
        
        public static function saveTmpFile($file, $fileDir, $fileName=''){
            if($file['error'] == 0){
-               if($fileName == ''){//����ͼƬ��ַʱ���½�
+               if($fileName == ''){
                    $raFile = explode(".", $file['name']);
                    $t = $raFile[count($raFile)-1];
                    $fileName = time().mt_rand(1,10000).'.'."$t";
-               }else{//����ͼƬ��ַʱ��ȡ�����ļ���(��a/b/c.imgȡ��c.img)
+               }else{
                     $ra = explode('/', $fileName);
                     $fileName = $ra[count($ra)-1];
                }
@@ -71,8 +71,8 @@
               }
               
               if($files['error'][$key] == 0){
-                  if(!isset($ra[$key])){//�����ڵ�ʱ���²��¼��ʱ��
-                      $raFile = explode(".", $value);//ȡ��׺��
+                  if(!isset($ra[$key])){
+                      $raFile = explode(".", $value);
                       $t = $raFile[count($raFile)-1];
                       $fileName = time().mt_rand(1,10000)."_"."$key".'.'."$t";
                   }else{
@@ -96,7 +96,7 @@
     
       public static function saveRaFile($raTmpFiles, $fileDir, $raFiles, $deleteImageList){
           foreach($raTmpFiles as $key=>$value){
-              if(isset($deleteImageList[$key]) && $deleteImageList[$key]!=0){//Ϊϵͳɾ���ļ�ʱ
+              if(isset($deleteImageList[$key]) && $deleteImageList[$key]!=0){
                   if(isset($raFiles[$key])){
                       self::deleteFile($raFiles[$key]);
                       unset($raFiles[$key]);

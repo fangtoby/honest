@@ -17,11 +17,22 @@
 class Users extends CActiveRecord
 {
 	public $rpassword;
+	public $_file;
+	public $_icon;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
 	 * @return Users the static model class
 	 */
+	
+	public function setFile($file){
+        $this->_file = $file;
+    }
+	
+	public function getIcon(){
+        return $this->_icon;
+    }
+	
 	public function initClear()
 	{
 		$this->password = '';	
@@ -49,14 +60,17 @@ class Users extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password,rpassword,email', 'required'),
-			array('email','email'),
+			array('username, password,rpassword,email', 'required','on'=>'create,update'),
+			array('email','email','on'=>'create,update'),
 			array('updatetime','addUpdateTime','on'=>'update'),
 			array('createtime , updatetime','addTime','on'=>'create'),
 			array('email','itMusebeOnly','on'=>'create'),
 			array('email','itMusebeSelf','on'=>'update'),
-			array('password', 'compare', 'compareAttribute'=>'rpassword'),
-			array('username, password, email, userimage', 'length', 'max'=>255),
+			array('password', 'compare', 'compareAttribute'=>'rpassword','on'=>'create,update'),
+			array('userimage','file','types'=>'jpg, gif, png','allowEmpty'=>false,'on'=>'upimage'),
+			array('userimage','checkFile','on'=>'upimage'),
+			array('userimage','uploadTmpFile','on'=>'upimage'),
+			array('userimage','uploadFile','on'=>'saveimage'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('uid, username, password, email, userimage, userpower, loginfrequency, createtime, updatetime', 'safe', 'on'=>'search'),
@@ -85,7 +99,7 @@ class Users extends CActiveRecord
 			'password' => 'Password',
 			'rpassword'=>'Repeat Password again',
 			'email' => 'Email Address',
-			'userimage' => 'image',
+			'userimage' => 'User Image',
 			'userpower' => 'User power',
 			'loginfrequency' => 'Login /HZ',
 			'createtime' => 'Create Time',
@@ -117,6 +131,31 @@ class Users extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+	
+	public function checkFile($attribute,$params){
+        $file = $this->_file;
+        if($file['error'] == 4 && $this->_icon != ''){
+            return ;
+        }
+        if($this->isNewRecord || ($this->isNewRecord==false && $file['error'] != 4)){
+            UploadFile::checkUploadFile($this, $_FILES[$attribute], $attribute);
+        }
+    }
+    
+    public function uploadTmpFile($attribute,$params){
+        $file = $this->_file;
+        if( $file['error'] != 4){
+            $dir = UploadFile::saveTmpFile($file, 'users/'.$attribute, $this->_icon);
+            $this->_icon = $dir;
+        }
+    }
+    
+	public function uploadFile($attribute,$params){
+        if(!$this->hasErrors() && $this->_icon != ''){
+            $dir = UploadFile::saveFile($this->_icon, 'users/'.$attribute, $this->userimage);
+            $this->userimage = $dir;           
+        }
+    }
 	
 	public function itMusebeOnly($attribute,$params)
 	{
