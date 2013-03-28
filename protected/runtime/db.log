@@ -154,3 +154,23 @@ in D:\xampp\htdocs\honest\index.php (13)
 in D:\xampp\htdocs\honest\protected\modules\Admin\views\default\dbinfo.php (23)
 in D:\xampp\htdocs\honest\protected\modules\Admin\controllers\DefaultController.php (29)
 in D:\xampp\htdocs\honest\index.php (13)
+2013/03/27 15:43:58 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'desc limit 0,10' at line 1. The SQL statement executed was: SELECT * FROM `users` `t` WHERE loginfrequency > 0 desc limit 0,10 .
+in C:\xampp\htdocs\DA\honest\protected\controllers\UsersController.php (153)
+in C:\xampp\htdocs\DA\honest\protected\components\Controller.php (62)
+in C:\xampp\htdocs\DA\honest\index.php (13)
+2013/03/27 15:44:09 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'esc limit 0,10' at line 1. The SQL statement executed was: SELECT * FROM `users` `t` WHERE loginfrequency > 0 esc limit 0,10 .
+in C:\xampp\htdocs\DA\honest\protected\controllers\UsersController.php (153)
+in C:\xampp\htdocs\DA\honest\protected\components\Controller.php (62)
+in C:\xampp\htdocs\DA\honest\index.php (13)
+2013/03/27 15:45:23 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'desc' at line 1. The SQL statement executed was: SELECT * FROM `users` `t` WHERE loginfrequency > 0 limit 0,10 desc.
+in C:\xampp\htdocs\DA\honest\protected\controllers\UsersController.php (153)
+in C:\xampp\htdocs\DA\honest\protected\components\Controller.php (62)
+in C:\xampp\htdocs\DA\honest\index.php (13)
+2013/03/27 15:48:37 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'desc' at line 1. The SQL statement executed was: SELECT * FROM `users` `t` WHERE loginfrequency > 0  desc.
+in C:\xampp\htdocs\DA\honest\protected\controllers\UsersController.php (153)
+in C:\xampp\htdocs\DA\honest\protected\components\Controller.php (62)
+in C:\xampp\htdocs\DA\honest\index.php (13)
+2013/03/27 15:49:22 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order by loginfrequency desc' at line 1. The SQL statement executed was: SELECT * FROM `users` `t` WHERE loginfrequency > 0 limit 0,10 order by loginfrequency desc.
+in C:\xampp\htdocs\DA\honest\protected\controllers\UsersController.php (153)
+in C:\xampp\htdocs\DA\honest\protected\components\Controller.php (62)
+in C:\xampp\htdocs\DA\honest\index.php (13)

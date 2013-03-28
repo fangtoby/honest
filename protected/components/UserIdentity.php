@@ -27,7 +27,6 @@ class UserIdentity extends CUserIdentity
 			$this->setState('name', $user->username);
 			$this->setState('email', $user->email);
 			$this->setState('last_login_time', $user->updatetime);
-			$user->saveAttributes(array('updatetime'=>date('Y-m-d H:i:s'),'loginfrequency' => $user->loginfrequency + 1));
 			$this->errorCode=self::ERROR_NONE;
 		}
 		return $this->errorCode;

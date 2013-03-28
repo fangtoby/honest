@@ -107,7 +107,6 @@ class Users extends CActiveRecord
 		$criteria->compare('username',$this->username,true);
 		$criteria->compare('password',$this->password,true);
 		$criteria->compare('email',$this->email,true);
-		$criteria->compare('userimage',$this->userimage,true);
 		$criteria->compare('userpower',$this->userpower);
 		$criteria->compare('loginfrequency',$this->loginfrequency);
 		$criteria->compare('createtime',$this->createtime,true);
@@ -136,6 +135,12 @@ class Users extends CActiveRecord
 			}
 		}
 	}
+	public function encryption()
+	{
+		$this->password = hash('sha256', $this->password);
+		$this->rpassword = hash('sha256', $this->rpassword);
+	}
+	
 	public function addUpdateTime($attribute,$params)
 	{
 		$this->updatetime = Util::getTime(time());

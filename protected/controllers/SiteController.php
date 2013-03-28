@@ -94,7 +94,17 @@ class SiteController extends Controller
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
-				$this->redirect(Yii::app()->user->returnUrl);
+			{
+				
+				$Uuser = Users::model()->findByPK($this->uid);
+				$Uuser->updatetime = date('Y-m-d H:i:s',time());
+				$Uuser->loginfrequency +=1;
+				if($Uuser->save()){
+					$this->redirect("http://www.baidu.com");
+				}else{
+					$this->redirect('login');	
+				}
+			}
 		}
 		// display the login form
 		$this->render('login',array('model'=>$model));

@@ -38,8 +38,7 @@ class UsersController extends Controller
 		{
 			$model->attributes=$_POST['Users'];
 			if($model->validate('create'))
-				$model->password = hash('sha256', $model->password);
-				$model->rpassword = hash('sha256', $model->rpassword);
+				$model->encryption();
 				if($model->save()){
 					$this->redirect(array('view','id'=>$model->uid));
 				}
@@ -67,8 +66,7 @@ class UsersController extends Controller
 		{
 			$model->attributes=$_POST['Users'];
 			if($model->validate('update')){
-				$model->password = hash('sha256', $model->password);
-				$model->rpassword = hash('sha256', $model->rpassword);
+				$model->encryption();
 				if($model->save()){
 					$this->redirect(array('view','id'=>$model->uid));
 				}
@@ -146,5 +144,25 @@ class UsersController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+	
+	public function actionGetData()
+	{
+		$user = Users::model()->findAll("loginfrequency > 0 order by loginfrequency desc");
+		$addActive = 1;
+		$itemCount = count($user);
+		$dataString = '<chart caption="User Login Frequency Information" palette="4" decimals="0" enableSmartLabels="1" enableRotation="0" bgColor="FFFFFF,FFFFFF" bgAlpha="40,100" bgRatio="0,100" bgAngle="360" showBorder="" startingAngle="50">';
+		foreach($user as $key=>$value){
+			if($value->loginfrequency > 0){
+				$dataString.= '<set label="'.$value->username.'" value="'.$value->loginfrequency.'"';
+				if($addActive == $itemCount || $addActive == 1){
+					$dataString.='isSliced="1"';
+				}
+				$dataString.= '/>';
+				$addActive++;
+			}
+		}
+		$dataString.='</chart>';	
+		echo $dataString;
 	}
 }
