@@ -59,12 +59,13 @@ class UsersController extends Controller
 			$model->scenario='upimage';
 			$model->setFile($_FILES['userimage']);
 			if($model->validate('upimage')){
-				
 			}else{
-				echo "Error";	
 			}
 			$session['user'] = $model;
-			  $this->redirect(array('confirm'));
+			$this->render('confirm',array(
+				'model'=>$model
+			));
+			Yii::app()->end();
 		}
 		$this->render('uploadimage',array(
 			'model'=>$model,

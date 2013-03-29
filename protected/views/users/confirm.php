@@ -17,7 +17,10 @@ $this->menu=array(
         <span><?=$model->username?></span>
 	</div>
 	<div class="row">
-		<img src="<?php echo Yii::app()->request->baseUrl."/".$model->getIcon().'?t='.time(); ?>"  style="width:20px;height:20px"/>
+		<img src="<?php echo Yii::app()->request->baseUrl."/".$model->getIcon().'?t='.time(); ?>"  style="height:120px"/>
+        <img src="<?php echo Yii::app()->request->baseUrl."/".$model->getIcon().'?t='.time(); ?>"  style="height:90px"/>
+        <img src="<?php echo Yii::app()->request->baseUrl."/".$model->getIcon().'?t='.time(); ?>"  style="height:60px"/>
+        <img src="<?php echo Yii::app()->request->baseUrl."/".$model->getIcon().'?t='.time(); ?>"  style="height:30px"/>
 	</div>
 	<div class="row buttons">
 		 <a href="<?php echo Yii::app()->createUrl('users/confirm') ?>" class="button">Save</a>

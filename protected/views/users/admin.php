@@ -36,7 +36,7 @@ $this->menu=array(
 		array(
 			 'name'=>'userimage', 
 			 'type'=>'html',
-			 'value'=>'CHtml::image(Yii::app()->request->baseUrl."/images/".$data->userimage.".jpg","",array("style"=>"width:25px;height:25px;"))',
+			 'value'=>'CHtml::image(Yii::app()->request->baseUrl."/".$data->userimage,"",array("style"=>"width:25px;height:25px;"))',
 			'htmlOptions' => array('style'=>'text-align:center;'),
 			 //'value'=>'CHtml::image(Yii::app()->request-baseUrl."/images/"'.$model["userimage"].'".jpg",array("height"=>30))'
 		),

@@ -8,7 +8,7 @@ $.Honest = {
 			version:'1'
 		},
 		url:{
-			//Url List
+			webroot:$('#basicroute').attr('location-data')
 		},
 		app:{
 			page:undefined,

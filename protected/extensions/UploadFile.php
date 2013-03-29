@@ -31,7 +31,9 @@
                    $fileName = time().mt_rand(1,10000).'.'."$t";
                }else{
                     $ra = explode('/', $fileName);
-                    $fileName = $ra[count($ra)-1];
+					$raFile = explode(".", $file['name']);
+                    $t = $raFile[count($raFile)-1];
+                    $fileName = $ra[count($ra)-1].'.'."$t";
                }
                $dir = UPLOAD_TEMP_IMAGE_DIR."/$fileDir"."/$fileName";
                move_uploaded_file($file['tmp_name'], UPLOAD_FILE_DIR."$dir");
@@ -46,8 +48,13 @@
                 $ra = explode('/', $tmpDir);
                 $dir = UPLOAD_IMAGE_DIR."/$fileDir/".$ra[count($ra)-1];
                 copy(UPLOAD_FILE_DIR.$tmpDir, UPLOAD_FILE_DIR.$dir);
-                self::deleteFile($tmpDir);
-                return $dir;
+				
+				$img = new image(UPLOAD_FILE_DIR."uploadImages/$fileDir",'small');
+				$newName = $img->thumb($ra[count($ra)-1],30,30);
+				
+				$smallDir = UPLOAD_IMAGE_DIR."/$fileDir/small/".$newName;
+              //  self::deleteFile($tmpDir);
+                return $smallDir;
             }else{
                 return $dbFileDir;
             }
@@ -71,8 +78,8 @@
               }
               
               if($files['error'][$key] == 0){
-                  if(!isset($ra[$key])){
-                      $raFile = explode(".", $value);
+                  if(!isset($ra[$key])){//�����ڵ�ʱ���²��¼��ʱ��
+                      $raFile = explode(".", $value);//ȡ��׺��
                       $t = $raFile[count($raFile)-1];
                       $fileName = time().mt_rand(1,10000)."_"."$key".'.'."$t";
                   }else{
@@ -96,7 +103,7 @@
     
       public static function saveRaFile($raTmpFiles, $fileDir, $raFiles, $deleteImageList){
           foreach($raTmpFiles as $key=>$value){
-              if(isset($deleteImageList[$key]) && $deleteImageList[$key]!=0){
+              if(isset($deleteImageList[$key]) && $deleteImageList[$key]!=0){//Ϊϵͳɾ���ļ�ʱ
                   if(isset($raFiles[$key])){
                       self::deleteFile($raFiles[$key]);
                       unset($raFiles[$key]);

@@ -145,7 +145,7 @@ class Users extends CActiveRecord
     public function uploadTmpFile($attribute,$params){
         $file = $this->_file;
         if( $file['error'] != 4){
-            $dir = UploadFile::saveTmpFile($file, 'users/'.$attribute, $this->_icon);
+            $dir = UploadFile::saveTmpFile($file, 'users/'.$attribute, $this->uid );
             $this->_icon = $dir;
         }
     }

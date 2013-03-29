@@ -25,6 +25,11 @@ $this->menu=array(
 			'class'=>'hl-detail-view'
 	),
 	'attributes'=>array(
+		array(
+			 'name'=>'userimage', 
+			 'type'=>'html',
+			 'value'=>CHtml::image(Yii::app()->request->baseUrl."/".$model->userimage,"",array("style"=>"height:100px;")),
+		),
 		'uid',
 		'username',
 		'password',
@@ -32,11 +37,6 @@ $this->menu=array(
 			'name'=>'email',
 			'type'=>'email',
 			'value'=>$model->email,
-		),
-		array(
-			 'name'=>'userimage', 
-			 'type'=>'html',
-			 'value'=>CHtml::image(Yii::app()->request->baseUrl."/images/".$model->userimage.".jpg","",array("style"=>"width:25px;height:25px;")),
 		),
 		'userpower',
 		'loginfrequency',

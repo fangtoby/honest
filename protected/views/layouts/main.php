@@ -73,5 +73,6 @@
 	<?php echo $content; ?>
 
 </div><!-- page -->
+<input type="hidden" id="basicroute" location-data="<?=Yii::app()->request->baseUrl; ?>" />
 </body>
 </html>
