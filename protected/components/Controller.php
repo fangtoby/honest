@@ -76,7 +76,7 @@ class Controller extends CController
 				  	  Yii::app()->end();
 				  }else{
 					  	Yii::app()->user->setFlash('message',"error");
-						Yii::app()->user->loginRequired();  
+						Yii::app()->user->loginRequired(); 
 				  }
 			}else{
 				$this->uid = Yii::app()->user->uid;

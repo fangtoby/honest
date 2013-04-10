@@ -58,6 +58,7 @@ return array(
 		'application.models.*',
 		'application.components.*',
 		'application.extensions.*',
+		'application.extensions.phpwebyip2country.*',
 	),
 
 	'modules'=>array(

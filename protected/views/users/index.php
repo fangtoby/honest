@@ -12,3 +12,11 @@ $this->menu=array(
 );
 ?>
 
+
+<?php
+$ip2c=new ip2country();
+$ipAddress = '202.102.81.241';
+echo $ipAddress.' belongs to '. $ip2c->get_country_name($ipAddress) . '<br>';
+echo $ip2c->get_country_name($ipAddress).' country code is ' . $ip2c->get_country_code($ipAddress);
+
+?>
