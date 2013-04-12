@@ -102,7 +102,7 @@ class Controller extends CController
 		$cs->coreScriptPosition = CClientScript::POS_HEAD;
 		$clientScripts = array(
 						'js'=>array(
-							array('honest', '')
+							array('honest', 'sha256')
 						)
 					);
 		$this->_ehtml = $this->_ecore->initClientScript(YII_DEBUG, $clientScripts, true);

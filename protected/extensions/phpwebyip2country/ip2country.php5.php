@@ -137,6 +137,8 @@ class ip2country {
 
 		if( !mysql_query('USE ' . $this->db_name))
 		{
+			//Create Database 
+			//...
 			$this->close();
 			return false;
 		}

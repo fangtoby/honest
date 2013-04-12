@@ -110,4 +110,22 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+	
+	
+	public function actionValiable()
+	{
+		if($_GET['password']){
+			$user = Users::model()->findByPK(1);	
+			if($_GET['password'] == $user->password){
+				echo CJSON::encode(array(
+						'result'=>1,
+					));	
+			}else{
+				echo CJSON::encode(array(
+						'result'=>0,
+					));	
+			}
+		}
+		
+	}
 }
